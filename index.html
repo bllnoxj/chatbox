@@ -1,73 +1,154 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChatBox</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StreamBox - Bibliothèque personnelle</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Section des 2 chatbox -->
-    <section class="container">
-        <!-- CHATBOX WHITE -->
-        <div class="white-chat-main-container">
-            <!-- fake nav -->
-             <div class="white-chat-container-nav">
-                <span>Chatbox.html</span>
-                <div class="white-chat-container-nav-circle">
-                    <div class="circle1"></div>
-                    <div class="circle2"></div>
-                    <div class="circle3"></div>
-                </div>
-             </div>
-             <!-- chatbox content -->
-              <!-- msg exemples -->
+  <header class="hero">
+    <div class="hero__content">
+      <span class="hero__badge">Accès privé • Contenu légalement détenu</span>
+      <h1>StreamBox</h1>
+      <p>
+        Un espace simple pour retrouver et lancer vos films achetés et stockés sur vos propres serveurs.
+        Aucun compte, aucune collecte, juste votre médiathèque personnelle.
+      </p>
+      <div class="hero__cta">
+        <button class="btn btn--primary" type="button">Ajouter un lien</button>
+        <button class="btn btn--ghost" type="button">Voir la bibliothèque</button>
+      </div>
+    </div>
+  </header>
 
-              <div class="white-chat-container">
-                <span class="white-chat-container-pseudo">Ashons</span>
-                <div class="white-chat-container-message">
-                    <span class="white-chat-container-message-text">MacOS c’est pas de l’autre côté justement??</span>
-                </div>
-              </div>
-
-              <div class="white-chat-container">
-                <span class="white-chat-container-pseudo">BoemLeHachoir</span>
-                <div class="white-chat-container-message">
-                    <span class="white-chat-container-message-text">Pour ton chat tu utilises le code de William Traoré ?</span>
-                </div>
-              </div>
-
-
-              <div class="white-chat-container">
-                <span class="white-chat-container-pseudo">Mothaibayo</span>
-                <div class="white-chat-container-message">
-                    <span class="white-chat-container-message-text">Le premier tuto design est trop bien hâte de voir la suite</span>
-                </div>
-              </div>
+  <main class="container">
+    <section class="panel">
+      <div class="panel__header">
+        <div>
+          <h2>Rechercher un film</h2>
+          <p>Entrez un titre pour filtrer votre bibliothèque privée.</p>
         </div>
-
-         <!-- CHATBOX BLACK -->
-
-         <div class="black-chat-main-container">
-            <!-- fake nav -->
-             <div class="black-chat-container-nav">
-                <span class="black">Chatbox.html</span>
-                <div class="black-chat-container-nav-circle">
-                    <div class="circle1"></div>
-                    <div class="circle2"></div>
-                    <div class="circle3"></div>
-                </div>
-             </div>
-             <!-- chatbox content -->
-              <!-- msg exemples -->
-
-              <iframe
-               id="chat_embed"
-              src="https://bllnoxj.github.io/chatbox/"
-              height="500"
-              width="350">
-              </iframe>
-
+        <span class="panel__status">0 requêtes externes</span>
+      </div>
+      <div class="search">
+        <label for="movie-search">Nom du film</label>
+        <div class="search__field">
+          <input id="movie-search" type="text" placeholder="Ex : Inception, Parasite, Memento" autocomplete="off">
+          <button class="btn btn--primary" type="button" id="search-button">Rechercher</button>
         </div>
+        <p class="search__hint">Les recherches restent locales dans votre navigateur.</p>
+      </div>
     </section>
+
+    <section class="panel">
+      <div class="panel__header">
+        <div>
+          <h2>Résultats disponibles</h2>
+          <p>Ces entrées sont des exemples. Remplacez-les par vos propres liens.</p>
+        </div>
+        <span class="panel__status" id="result-count">3 titres</span>
+      </div>
+
+      <div class="grid" id="results-grid">
+        <article class="card" data-title="Inception">
+          <div class="card__header">
+            <h3>Inception</h3>
+            <span>1080p • FR/EN</span>
+          </div>
+          <p>Source personnelle stockée sur votre cloud privé.</p>
+          <div class="card__actions">
+            <button class="btn btn--primary" type="button">Lire</button>
+            <button class="btn btn--ghost" type="button">Copier le lien</button>
+          </div>
+        </article>
+
+        <article class="card" data-title="Parasite">
+          <div class="card__header">
+            <h3>Parasite</h3>
+            <span>4K • VOSTFR</span>
+          </div>
+          <p>Disponible depuis votre serveur personnel.</p>
+          <div class="card__actions">
+            <button class="btn btn--primary" type="button">Lire</button>
+            <button class="btn btn--ghost" type="button">Copier le lien</button>
+          </div>
+        </article>
+
+        <article class="card" data-title="Memento">
+          <div class="card__header">
+            <h3>Memento</h3>
+            <span>720p • FR</span>
+          </div>
+          <p>Ajoutez un lien direct vers votre stockage.</p>
+          <div class="card__actions">
+            <button class="btn btn--primary" type="button">Lire</button>
+            <button class="btn btn--ghost" type="button">Copier le lien</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel__header">
+        <div>
+          <h2>Comment ça fonctionne</h2>
+          <p>Un flux simple, sans téléchargement automatique.</p>
+        </div>
+      </div>
+      <ol class="steps">
+        <li>
+          <strong>Ajoutez vos propres liens.</strong>
+          Utilisez des URLs provenant de vos serveurs privés ou d’un stockage que vous contrôlez.
+        </li>
+        <li>
+          <strong>Recherchez un titre.</strong>
+          La recherche filtre votre liste localement, sans requête externe.
+        </li>
+        <li>
+          <strong>Lancez la lecture.</strong>
+          Le lecteur pointe uniquement vers les liens que vous avez définis.
+        </li>
+      </ol>
+      <div class="notice">
+        <h3>Respect des droits</h3>
+        <p>
+          Ce modèle est conçu pour des contenus dont vous possédez les droits ou les licences nécessaires.
+          Aucun téléchargement automatique ni récupération depuis des services tiers n’est inclus.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>StreamBox • Démo statique pour médiathèque personnelle.</p>
+  </footer>
+
+  <script>
+    const searchInput = document.getElementById('movie-search');
+    const resultsGrid = document.getElementById('results-grid');
+    const resultCount = document.getElementById('result-count');
+    const searchButton = document.getElementById('search-button');
+
+    const updateResults = () => {
+      const query = searchInput.value.trim().toLowerCase();
+      const cards = Array.from(resultsGrid.querySelectorAll('.card'));
+      let visibleCount = 0;
+
+      cards.forEach((card) => {
+        const title = card.dataset.title.toLowerCase();
+        const matches = title.includes(query);
+        card.style.display = matches ? 'flex' : 'none';
+        if (matches) {
+          visibleCount += 1;
+        }
+      });
+
+      resultCount.textContent = `${visibleCount} titre${visibleCount > 1 ? 's' : ''}`;
+    };
+
+    searchInput.addEventListener('input', updateResults);
+    searchButton.addEventListener('click', updateResults);
+  </script>
 </body>
 </html>
